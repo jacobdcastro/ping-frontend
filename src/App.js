@@ -55,7 +55,7 @@ export default function App() {
 
   React.useEffect(() => {
     initWalletConnection();
-  }, [initWalletConnection]);
+  });
 
   //listen for emitter events
   React.useEffect(() => {
@@ -91,7 +91,7 @@ export default function App() {
         pingPortalContract.off('NewPing', onNewPing);
       }
     };
-  }, []);
+  });
 
   const getAllPings = async () => {
     try {
