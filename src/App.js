@@ -8,7 +8,6 @@ export default function App() {
   const [activeAccount, setActiveAccount] = React.useState('');
   const [allPings, setAllPings] = React.useState([]);
   const [message, setMessage] = React.useState('');
-  const [wrongNetwork, setWrongNetwork] = React.useState(false);
 
   const contractAddress = '0x214d8D01441c940585126752649AbCa64eDa16b6';
   const contractABI = PingPortal.abi;
@@ -56,13 +55,7 @@ export default function App() {
 
   React.useEffect(() => {
     initWalletConnection();
-  }, []);
-
-  React.useEffect(() => {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-    }
-  }, []);
+  }, [initWalletConnection]);
 
   //listen for emitter events
   React.useEffect(() => {
